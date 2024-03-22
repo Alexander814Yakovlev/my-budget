@@ -1,0 +1,232 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+
+:root {
+    --red_bg: rgba(252, 84, 84, 0.5);
+    --green_bg: rgba(169, 247, 68, 0.5);
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    cursor: default;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.main {
+    background-color: #c6daf6;
+    height: 100vh;
+    font-family: 'Roboto';
+    position: relative;
+}
+
+.app__top {
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.app__settings,
+.app__export
+ {
+    font-size: 26px;
+}
+
+.app__body {
+    text-align: center;
+}
+
+.app__header {}
+
+.app__ballance {}
+
+table {
+    margin: 20px auto;
+    width: 80%;
+    cursor: default;
+}
+
+th {
+    font-size: 20px;
+}
+
+td {
+    font-size: 18px;
+}
+
+.app__operation-list {}
+
+.list__title {}
+
+.list__body {
+    margin: 15px auto;
+    background-color: #fff;
+    width: 80%;
+    height: 40vh;
+    overflow: auto;
+}
+
+.list__item {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #828282;
+
+}
+
+.income {
+    background-color: var(--green_bg);
+}
+
+.item__info {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.item__text {}
+
+.item__amount {}
+
+.item__remove {}
+
+.icon-cancel {}
+
+
+.spending {
+    background-color: var(--red_bg);
+}
+
+.operation__buttons {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.operation__button {
+    height: 70px;
+    width: 70px;
+    border: 1px solid #828282;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0px 2px 10px 1px #828282;
+    color: #343434;
+}
+
+.operation__button:active {
+    transform: translate(0, 1px);
+}
+
+.income-button {
+    background-color: var(--green_bg);
+}
+
+.spending-button {
+    background-color: var(--red_bg);
+}
+
+.overlay {
+    height: 55vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.income__operation,
+.spending__operation {
+    height: 50vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    background-color: #fff;
+    border-radius: 15px 15px 0 0;
+}
+
+.operation__header {
+    text-align: center;
+    margin: 20px auto;
+}
+.income__form,
+.spending__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 85%;
+    height: 70%;
+    margin: 0 auto;
+}
+
+.income__form>label,
+.spending__form>label {
+    margin-bottom: 10px;
+}
+
+.income__form>input,
+.spending__form>input {
+    margin-bottom: 10px;
+}
+
+#add-income {
+    height: 50px;
+    border-radius: 8px;
+    background-color: var(--green_bg);
+    font-size: 18px;
+}
+
+#add-spending {
+    height: 50px;
+    border-radius: 8px;
+    background-color: var(--red_bg);
+    font-size: 18px;
+}
+
+.spending__operation {
+}
+.operation__header {
+}
+.spending__form {
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Мой бюджет</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="app">
+            <div class="app__top">
+                <button class="app__settings"><i class="icon-cog"></i></button>
+                <a class="app__export" :href="exportCSV" :download="today"><i class="icon-download"></i></a>
+            </div>
+            <div class="app__body">
+                <h1 class="app__header">Баланс</h1>
+                <h2 class="app__ballance">{{ totalBallance }}{{ currency }}</h2>
+
+                <!-- Таблица доходы-расходы -->
+                <table>
+                    <tr>
+                        <th>Доход</th>
+                        <th>Расход</th>
+                    </tr>
+                    <tr>
+                        <td>{{ totalIncome }}{{ currency }}</td>
+                        <td>{{ totalSpending }}{{ currency }}</td>
+                    </tr>
+                </table>
+                <!-- Операции -->
+                <div class="app__operation-list">
+                    <h3 class="list__title">Операции</h3>
+                    <ul class="list__body">
+                        <li class="list__item" v-for="(item, id) in operations" :class="item.category" :id="id">
+                            <div class="item__info">
+                                <p class="item__text">{{ item.title }}</p>
+                                <p class="item__amount">{{ item.amount }}{{ currency }}</p>
+                            </div>
+                            <button class="item__remove" @click="removeOperation"><i class="icon-cancel"></i></button>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Доюавить операцию -->
+                <div class="operation__buttons">
+                    <button class="operation__button income-button"
+                            @click="showAddIncome"><i
+                            class="icon-plus"></i></button>
+                    <button class="operation__button spending-button"
+                            @click="showAddSpending"><i class="icon-minus"></i></button>
+                </div>
+            </div>
+            <!-- Overlay -->
+            <div class="overlay" hidden
+                 @click="hideAll"></div>
+            <!-- Добавить доход -->
+            <div class="income__operation" hidden>
+                <h3 class="operation__header">Добавить доход</h3>
+                <div class="income__form">
+                    <label for="income-date">Дата</label>
+                    <input type="date" name="income-date" id="income-date" :value="today">
+                    <label for="income-amount">Сумма</label>
+                    <input type="number" name="income-amount" id="income-amount">
+                    <label for="income-text">Описание</label>
+                    <input type="text" name="income-text" id="income-text">
+                    <button id="add-income" @click="addIncome">Добавить доход</button>
+                </div>
+            </div>
+
+            <!-- Добавить расход -->
+            <div class="spending__operation" hidden>
+                <h3 class="operation__header">Добавить расход</h3>
+                <div class="spending__form">
+                    <label for="spending-date">Дата</label>
+                    <input type="date" name="spending-date" id="spending-date" :value="today">
+                    <label for="spending-amount">Сумма</label>
+                    <input type="number" name="spending-amount" id="spending-amount">
+                    <label for="spending-text">Описание</label>
+                    <input type="text" name="spending-text" id="spending-text">
+                    <button id="add-spending" @click="addSpending">Добавить расход</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/vue.global.prod.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
